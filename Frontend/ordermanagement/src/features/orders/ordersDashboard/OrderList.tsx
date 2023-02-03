@@ -1,6 +1,8 @@
+import { IconButton } from '@mui/material';
 import React, { useState } from 'react';
 import OmGrid from '../../../components/elements/OmGrid';
 import { Customer, Order } from '../../../graphql/generated/schema';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 interface OrderListProps {
     orders: Order[]
@@ -11,7 +13,14 @@ export default function OrderList({orders} : OrderListProps) {
         {
             field: 'id',
             width: 50,
-            suppressSizeToFit: true
+            suppressSizeToFit: true,
+            cellRenderer: function(params: any) {
+                return (
+                    <IconButton onClick={() => window.open(`/orders/${params.value}`, "_black")}>
+                        <LaunchIcon fontSize="small" color="secondary"/>
+                    </IconButton>
+                );
+            }
         },
         { 
             field: 'customer', 

@@ -1,10 +1,12 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Container } from '@mui/system';
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import OmAlert from '../../components/elements/OmAlert';
+import OmHeader from '../../components/elements/OmHeader';
 import OmLoading from '../../components/elements/OmLoading';
-import { Customer, useGetCustomerByIdQuery } from '../../graphql/generated/schema';
+import { Customer, Order, useGetCustomerByIdQuery } from '../../graphql/generated/schema';
+import OrderList from '../orders/ordersDashboard/OrderList';
 import CustomerForm from './customerForms/CustomerForm';
 
 export default function CustomerPage() {
@@ -29,18 +31,23 @@ export default function CustomerPage() {
     }
 
     const customer = customerData.customers[0] as Customer
+    const customerOrders = customer.orders as Order[];
     return (
         <Container>
             <Grid container spacing={2}>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={8}>
-                    <Typography component='div' variant='h5' display='block' gutterBottom align='center'>
-                        Customer Details
-                    </Typography>
+                    <OmHeader header='Customer Details' />
                 </Grid>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={12}>
                     <CustomerForm customer={customer} />
+                </Grid>
+                <Grid item xs={12}>
+                    <OmHeader header='Customer Orders' />
+                </Grid>
+                <Grid item xs={12}>
+                    <OrderList orders={customerOrders} />
                 </Grid>
             </Grid>
         </Container>
