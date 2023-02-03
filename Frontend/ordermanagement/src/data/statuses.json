@@ -1,0 +1,6 @@
+{
+    "COMPLETED" : "COMPLETED",
+    "DRAFT" : "DRAFT",
+    "PENDING" : "PENDING",
+    "SHIPPED" : "SHIPPED"
+}

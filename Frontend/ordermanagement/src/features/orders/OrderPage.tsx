@@ -31,13 +31,12 @@ export default function OrderPage() {
 
     const order = orderData.orders[0] as Order;
     const customer = order.customer as Customer;
-
     return (
         <Container>
             <Grid container spacing={2}>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={8}>
-                    <OmHeader header='Order Details' />
+                    <OmHeader header={`Order Details - ${customer.firstName} ${customer.lastName}`} />
                 </Grid>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={12}>
