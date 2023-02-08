@@ -20,6 +20,7 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
+    .AddMutationType<Mutation>()
     .AddFiltering();
 
 // cors
