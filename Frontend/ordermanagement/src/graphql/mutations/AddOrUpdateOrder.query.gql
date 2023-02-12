@@ -1,7 +1,6 @@
-query GetOrderById($id: Int!) {
-  orders (where: { id: { eq: $id}}) {
+mutation AddOrUpdateOrder($order: OrderModelInput!) {
+  addOrUpdateOrder(order: $order) {
     id
-    customerId
     orderDate
     description
     totalAmount
