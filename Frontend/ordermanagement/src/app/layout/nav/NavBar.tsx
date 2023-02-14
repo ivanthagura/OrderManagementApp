@@ -34,6 +34,11 @@ export default function NavBar() {
                             sx={{ my: 2, color: 'white', display: 'block '}}>
                             <Link className='text-link' to="/orders">Orders</Link>    
                         </Button>
+                        <Button
+                            key="NewCustomer"
+                            sx={{ my: 2, color: 'white', display: 'block '}}>
+                            <Link className='text-link' to="/customers/newcustomer">Add New Customer</Link>    
+                        </Button>
                     </Box>
                 </Toolbar>
             </Container>

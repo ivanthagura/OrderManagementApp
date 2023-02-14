@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { Container } from '@mui/system';
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -48,6 +48,11 @@ export default function CustomerPage() {
                 </Grid>
                 <Grid item xs={12}>
                     <OrderList orders={customerOrders} />
+                </Grid>
+                <Grid item xs={12}>
+                    <Button variant='contained' fullWidth={true} href={`/customers/${customer.id}/neworder`}>
+                        Add New Order
+                    </Button>
                 </Grid>
             </Grid>
         </Container>
